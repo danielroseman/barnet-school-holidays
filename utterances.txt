@@ -1,0 +1,21 @@
+NextHoliday When is the next holiday
+NextHoliday Tell me the next holiday
+NextHoliday Next holiday
+NextHoliday Tell me the next school holiday
+NextHoliday Give me the next school holiday
+NextHoliday Next school holiday
+NextHoliday When is the next school holiday
+NextHoliday Tell me the next holiday from {Date}
+NextHoliday Give me the next holiday from {Date}
+NextHoliday When is the next holiday from {Date}
+NextHoliday Next holiday from {Date}
+NextHoliday Next school holiday from {Date}
+NextHoliday When is the next school holiday from {Date}
+NextHolidayFromDate Give me the next school holiday from {Date}
+NextHoliday Tell me the next holiday after {Date}
+NextHoliday Give me the next holiday after {Date}
+NextHoliday When is the next holiday after {Date}
+NextHoliday Next holiday after {Date}
+NextHoliday Next school holiday after {Date}
+NextHoliday When is the next school holiday after {Date}
+NextHolidayFromDate Give me the next school holiday after {Date}
