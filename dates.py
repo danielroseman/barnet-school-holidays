@@ -7,17 +7,17 @@ def open_data():
 def get_dates():
   with open_data() as f:
     reader = csv.reader(f)
-    return [(l[0], datetime.datetime.strptime(l[1], '%Y-%m-%d').date())
-            for l in reader if len(l) >= 2]
+    return [(l[0], datetime.datetime.strptime(l[1], '%Y-%m-%d').date(), l[2])
+            for l in reader if len(l) >= 3]
 
 def get_today():
   return datetime.date.today()
 
 def get_next_event(target_date):
   dates = get_dates()
-  for desc, dt in dates:
-    if dt > target_date:
-      return desc, dt
+  for row in dates:
+    if row[1] > target_date:
+      return row
 
 def find_next(date=None):
   target_date = date or get_today()
@@ -27,7 +27,9 @@ def find_next(date=None):
     plural = 's' if days > 1 else ''
     response =  '{} starts in {} day{}'.format(event[0], days, plural)
     if date:
-      response += ' from {}'.format(date.strftime('%A %B %-d'))
+      response += ' from {}'.format(date.strftime('%Y-%m-%d'))
+    if event[2] == 't':
+      response = "It's already the holidays. " + response
   else:
     response = 'Sorry, there are no upcoming events'
   return response
