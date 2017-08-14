@@ -9,7 +9,7 @@ logger.setLevel(logging.INFO)
 
 
 
-def make_response(text, card_title='Thanks', should_end_session=False,
+def make_response(text, card_title='Thanks', should_end_session=True,
                   reprompt_text=None):
   response = {
     'version': '1.0',
@@ -49,12 +49,11 @@ def dispatch(event, context):
     elif intent['name'] == 'AMAZON.HelpIntent':
       text = ('Ask me for the next school holiday, or for the next holiday '
               'after a certain date.')
-      return make_response(text, reprompt_text=text)
+      return make_response(text, reprompt_text=text, should_end_session=False)
     elif intent['name'] in ('AMAZON.StopIntent', 'AMAZON.CancelIntent'):
       return make_response(
           'Thank you for using Barnet School Holidays',
           card_title='Goodbye',
-          should_end_session=True
       )
 
   return make_response("Sorry, I didn't understand that request.")
